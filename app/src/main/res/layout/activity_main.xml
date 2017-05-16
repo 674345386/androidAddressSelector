@@ -17,9 +17,11 @@
         android:text="BottomDialog" />
     <Button
         android:id="@+id/jumpBtn"
-        android:layout_toRightOf="@id/buttonBottomDialog"
         android:text="jump"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/buttonBottomDialog"
+        android:layout_toEndOf="@+id/buttonBottomDialog" />
 
 </RelativeLayout>

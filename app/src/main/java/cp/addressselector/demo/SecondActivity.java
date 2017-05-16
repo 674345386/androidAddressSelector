@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cp.addressselector.BottomDialog;
@@ -25,6 +26,7 @@ public class SecondActivity extends AppCompatActivity implements OnAddressSelect
     TextView tv_address_new_region;
     TextView save;
     BottomDialog dialog;
+    LinearLayout mConfirm_add_address_btn;
     //
     private EditTextWithDel editName;
     private EditTextWithDel editPhone;
@@ -43,10 +45,12 @@ public class SecondActivity extends AppCompatActivity implements OnAddressSelect
         dialog = new BottomDialog(SecondActivity.this);
         tvEchoRegion = (TextView) findViewById(R.id.tv_address_new_region);
         tv_address_new_region = (TextView) findViewById(R.id.tv_address_new_region);
-        save = (TextView) findViewById(R.id.save);
+//        save = (TextView) findViewById(R.id.save);
         editName = (EditTextWithDel) findViewById(R.id.edit_address_new_name);
         editPhone = (EditTextWithDel) findViewById(R.id.edit_address_new_phone);
         editDetail = (EditTextWithDel) findViewById(R.id.edit_address_new_detail);
+
+        mConfirm_add_address_btn = (LinearLayout) findViewById(R.id.confirm_add_address_btn);
 
     }
 
@@ -60,19 +64,22 @@ public class SecondActivity extends AppCompatActivity implements OnAddressSelect
             }
         });
         //
-        save.setOnClickListener(new View.OnClickListener() {
+        mConfirm_add_address_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkWhetherCanBeSaved())
+                if (checkWhetherCanBeSaved()) {
+                    trySetSaveTextButtonEnable();
+                    T.showLong(SecondActivity.this, allDetail);
+
+                } else {
                     T.showLong(SecondActivity.this, "please complete all contents");
-                else   {
-                        trySetSaveTextButtonEnable();
                     //save
                 }
             }
         });
     }
 
+    private String allDetail;
     @Override
     public void onAddressSelected(Province province, City city, County county, Street street) {
         String s =
@@ -81,6 +88,7 @@ public class SecondActivity extends AppCompatActivity implements OnAddressSelect
                         (county == null ? "" : county.name) +
                         (street == null ? "" : street.name);
         T.showShort(this, s);
+        allDetail=s;
         tv_address_new_region.setText(s);
         dialog.dismissBottomDialog();
     }
@@ -96,6 +104,6 @@ public class SecondActivity extends AppCompatActivity implements OnAddressSelect
      */
     private void trySetSaveTextButtonEnable() {
         boolean f = checkWhetherCanBeSaved();
-        save.setEnabled(f);
+        mConfirm_add_address_btn.setEnabled(f);
     }
 }

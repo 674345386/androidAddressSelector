@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class Tools {
     public static boolean isHaveAllContent(TextView[] views){
         for (TextView e :views){
-            if(TextUtils.isEmpty(e.getText()));
+            if(TextUtils.isEmpty(e.getText()))
             return false;
         }
         return true;

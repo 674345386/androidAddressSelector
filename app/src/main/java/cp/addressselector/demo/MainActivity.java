@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements OnAddressSelected
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
 
         AddressSelector selector = new AddressSelector(this);
