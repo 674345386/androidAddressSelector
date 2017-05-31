@@ -21,7 +21,8 @@
         <cp.addressselector.edittext.EditTextWithDel
             android:id="@+id/edit_address_new_name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+              android:gravity="center_horizontal|left|center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:hint="@string/hint_consignee"
@@ -51,7 +52,8 @@
         <cp.addressselector.edittext.EditTextWithDel
             android:id="@id/edit_address_new_phone"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+              android:gravity="center_horizontal|left|center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:digits="0123456789"
@@ -83,7 +85,8 @@
         <TextView
             android:id="@+id/tv_address_new_region"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|left|center_vertical"
             android:layout_weight="1"
             android:hint="@string/hint_chooser_region"
             android:textColor="@color/colorTextNormal"
@@ -114,7 +117,8 @@
         <cp.addressselector.edittext.EditTextWithDel
             android:id="@+id/edit_address_new_detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+              android:gravity="center_horizontal|left|center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:hint="@string/hint_address_detail"
